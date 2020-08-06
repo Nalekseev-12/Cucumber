@@ -4,14 +4,10 @@ import ActionComponent.Action;
 import io.cucumber.java.ru.Тогда;
 import org.openqa.selenium.By;
 
-public class GiftCardsPageSteps {
-    private final Action action;
+public class GiftCardsPageSteps extends AbstractPage {
 
     private final By titleGiftCards = By.xpath("//*[@class='gift-buy__title']/h1");
 
-    public GiftCardsPageSteps(Action action) {
-        this.action = action;
-    }
 
     @Тогда("проверяем что переключилсь на вкладку Подарочные карты")
     public void checkSwitchToGiftCards() {

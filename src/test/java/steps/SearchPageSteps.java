@@ -6,17 +6,13 @@ import io.cucumber.java.ru.Тогда;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
-public class SearchPageSteps {
+public class SearchPageSteps extends AbstractPage {
 
-    private final Action action;
 
     private final By searchButton = By.xpath("//*[@class='button__icon button__icon_find']");
     private final By fieldSearch = By.xpath("//*[@class='field__input']");
     private final By brandName = By.xpath("//*[contains(@class,\"brand-info__logo\")]");
 
-    public SearchPageSteps(Action action) {
-        this.action = action;
-    }
 
     @Когда("нажимаем на кнопку Поиск")
     public void clickSearch() {

@@ -5,8 +5,7 @@ import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.Тогда;
 import org.openqa.selenium.By;
 
-public class MainPageSteps {
-    private final Action action;
+public class MainPageSteps extends AbstractPage {
 
     private final String User = "test";
     private final String Password = "test";
@@ -26,10 +25,6 @@ public class MainPageSteps {
     private final By buttonApple = By.xpath("//*[@title='Apple']");
     private final By buttonInterior = By.xpath("//*[@title='Интерьер']");
 
-
-    public MainPageSteps(Action action) {
-        this.action = action;
-    }
 
     @Когда("закрываем поп-ап выбора города")
     public void closePopUp(){

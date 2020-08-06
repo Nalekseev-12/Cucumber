@@ -9,8 +9,8 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class NewItemPageSteps  {
-    private final Action action;
+public class NewItemPageSteps extends AbstractPage  {
+
 
     private final By titleNewItemPage = By.xpath("//*[@class='selection-page__title h2 italic ng-star-inserted']");
     private final By buttonBrand = By.xpath("//*[@class='product-list__content-wrap']/filter-desktop/div[2]");
@@ -21,9 +21,7 @@ public class NewItemPageSteps  {
     private final By buttonSortByPriceAscending = By.xpath("//*[@class='select__body']/li[3]");
     private final By listOfPriceProducts = By.xpath("//*[@class='price ng-star-inserted']");
 
-    public NewItemPageSteps(Action action) {
-        this.action = action;
-    }
+
 
     @Тогда("проверям что перешли во вкладку Новинки для мужчин")
     public void checkSwitchToMale() {

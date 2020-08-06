@@ -1,19 +1,15 @@
 package steps;
 
-import ActionComponent.Action;
+import ActionComponent.QAConfig;
 import io.cucumber.java.After;
 import io.cucumber.java.ru.Дано;
-import io.cucumber.java.ru.Тогда;
+import org.springframework.test.context.ContextConfiguration;
+
+import javax.annotation.PreDestroy;
 
 
-public class DefaultSteps {
-
-    private final Action action;
-
-
-    public DefaultSteps(Action action) {
-        this.action = action;
-    }
+@ContextConfiguration(classes = QAConfig.class)
+public class DefaultSteps extends AbstractPage {
 
 
     @Дано("переходим на страницу {string}")
@@ -27,7 +23,10 @@ public class DefaultSteps {
     }
 
     @After
-    public void destroy() {
-        action.quit();
+    public void reopen() {
+        action.reopenDriver();
     }
+
+
+
 }

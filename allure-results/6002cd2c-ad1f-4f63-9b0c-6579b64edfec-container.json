@@ -1,0 +1,1 @@
+{"uuid":"6002cd2c-ad1f-4f63-9b0c-6579b64edfec","name":"Сценарий: ","children":["9cb145a1-bc0e-4292-83ab-416be4494f4d"],"befores":[],"afters":[{"name":"DefaultSteps.destroy()","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1596703000209,"stop":1596703000210}],"links":[],"start":1596703000207,"stop":1596703000210}

@@ -4,16 +4,16 @@ import gherkin.ast.Scenario;
 import io.cucumber.java.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PreDestroy;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+@Component
 public class Action {
 
     protected WebDriver driver = new Browser().createDriver(BrowserType.CHROME, "-start-maximized");
@@ -24,6 +24,17 @@ public class Action {
     }
 
     public List<WebElement> getElements (By by) {return driver.findElements(by);}
+
+    public void openWindow() {
+        ((JavascriptExecutor)driver).executeScript("window.open()");
+    }
+
+    public void reopenDriver() {
+        if (null != driver) {
+            driver.quit();
+        }
+        driver = new Browser().createDriver(BrowserType.CHROME, "-start-maximized");
+    }
 
     public void get(String url) {
         driver.get(url);
@@ -65,6 +76,14 @@ public class Action {
     }
 
     public void quit() {
+        driver.quit();
+    }
+
+    @PreDestroy
+    public void destroy() {
+        if (null == driver) {
+            return;
+        }
         driver.quit();
     }
 
