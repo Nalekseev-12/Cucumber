@@ -6,7 +6,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan({
         "steps.**",
-        "ActionComponent.**"
+        "ActionComponent.**",
+
 })
 public class QAConfig {
 }
